@@ -1,14 +1,13 @@
-using PhotoManager.Models;
 using System.Data.Entity;
 
-namespace PhotoManager
+namespace PhotoManager.Models
 {
 
 
-    public class PhotoManagerDataModel : DbContext
+    public class PhotoManagerDbContext : DbContext
     {
 
-        public PhotoManagerDataModel()
+        public PhotoManagerDbContext()
             : base("name=PhotoManagerDB")
         {
         }

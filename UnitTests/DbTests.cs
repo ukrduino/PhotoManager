@@ -11,19 +11,19 @@ namespace UnitTests
         [TestMethod]
         public void CreateAlbumTests()
         {
-            using (PhotoManagerDataModel dataModel = new PhotoManagerDataModel())
+            using (PhotoManagerDbContext dbContext = new PhotoManagerDbContext())
             {
-                dataModel.Albums.Add(new AlbumModel { Title = "TestsAlbum1" });
-                dataModel.SaveChanges();
+                dbContext.Albums.Add(new AlbumModel { Title = "TestsAlbum1" });
+                dbContext.SaveChanges();
             }
         }
         [TestMethod]
         public void CreatePhotoTests()
         {
-            using (PhotoManagerDataModel dataModel = new PhotoManagerDataModel())
+            using (PhotoManagerDbContext dbContext = new PhotoManagerDbContext())
             {
-                dataModel.Photoes.Add(new PhotoModel { Title = "TestPhoto1" });
-                dataModel.SaveChanges();
+                dbContext.Photoes.Add(new PhotoModel { Title = "TestPhoto1" });
+                dbContext.SaveChanges();
             }
         }
     }

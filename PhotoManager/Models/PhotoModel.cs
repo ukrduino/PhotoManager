@@ -9,9 +9,11 @@ namespace PhotoManager.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
-        public DateTime? Date { get; set; }
+        public string ImagePath { get; set; }
+        public DateTime? TakenDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         public string Place { get; set; }
         public string Camera { get; set; }
         public string FocalLength { get; set; }
@@ -19,11 +21,13 @@ namespace PhotoManager.Models
         public string CameraLockSpeed { get; set; }
         public string ISO { get; set; }
         public bool UsedFlash { get; set; }
+        public byte[] ImageData { get; set; }
         public ICollection<AlbumModel> Album { get; set; }
 
         public PhotoModel()
         {
             Album = new List<AlbumModel>();
+            CreatedDate = DateTime.Now;
         }
     }
 }

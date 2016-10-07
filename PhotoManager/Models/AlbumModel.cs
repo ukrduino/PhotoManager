@@ -9,16 +9,18 @@ namespace PhotoManager.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Genre { get; set; }
-        public DateTime? Date { get; set; }
+        public DateTime CreatedDate { get; set; }
         public ICollection<PhotoModel> Photoes { get; set; }
+        public byte[] CoverImageData { get; set; }
 
         public AlbumModel()
         {
             Photoes = new List<PhotoModel>();
+            CreatedDate = DateTime.Now;
         }
     }
 }

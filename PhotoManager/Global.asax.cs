@@ -15,17 +15,17 @@ namespace PhotoManager
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer(new DropCreateDatabaseAlways<PhotoManagerDataModel>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<PhotoManagerDbContext>());
             SeedDb();
         }
 
         private void SeedDb()
         {
-            using (PhotoManagerDataModel dataModel = new PhotoManagerDataModel())
+            using (PhotoManagerDbContext dbContext = new PhotoManagerDbContext())
             {
-                dataModel.Albums.Add(new AlbumModel { Title = "TestsAlbum" });
-                dataModel.Photoes.Add(new PhotoModel { Title = "TestPhoto" });
-                dataModel.SaveChanges();
+                dbContext.Albums.Add(new AlbumModel { Title = "TestsAlbum" });
+                dbContext.Photoes.Add(new PhotoModel { Title = "TestPhoto" });
+                dbContext.SaveChanges();
             }
         }
     }

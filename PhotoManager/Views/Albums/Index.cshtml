@@ -1,0 +1,12 @@
+@model IEnumerable<PhotoManager.Models.AlbumModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <h2>Albums <p>@Html.ActionLink("MY PHOTOES", "Photoes")</p></h2>
+    <p>@Html.ActionLink("Create New", "Create")</p>
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 albumCover">@Html.ActionLink(item.Title, "Details", new { id = item.Id })</div>
+    }
+</div>

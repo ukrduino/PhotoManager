@@ -5,13 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PhotoManager.Models
 {
-    public class PhotoModel
+    public class PhotoModel: HasLastModifiedField
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Title { get; set; }
-        public string ImagePath { get; set; }
         public DateTime? TakenDate { get; set; }
         public DateTime CreatedDate { get; set; }
         public string Place { get; set; }
@@ -23,6 +22,7 @@ namespace PhotoManager.Models
         public bool UsedFlash { get; set; }
         public byte[] ImageData { get; set; }
         public ICollection<AlbumModel> Album { get; set; }
+        public DateTime? LastModified { get; set; }
 
         public PhotoModel()
         {

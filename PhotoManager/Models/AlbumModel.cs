@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PhotoManager.Models
 {
-    public class AlbumModel
+    public class AlbumModel: HasLastModifiedField
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,6 +16,7 @@ namespace PhotoManager.Models
         public DateTime CreatedDate { get; set; }
         public ICollection<PhotoModel> Photoes { get; set; }
         public byte[] CoverImageData { get; set; }
+        public DateTime? LastModified { get; set; }
 
         public AlbumModel()
         {

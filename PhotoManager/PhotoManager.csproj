@@ -136,6 +136,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AlbumModel.cs" />
+    <Compile Include="Models\HasLastModifiedField.cs" />
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\PhotoManagerDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
